@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import ar.edu.unlam.pb2.eva03.enumeradores.TipoDeBatalla;
+
 public class Recuperatorio {
 
 	@Test
@@ -59,7 +61,7 @@ public class Recuperatorio {
 		argentina.agregarVehiculo(new Destructor(10, "A-10"));
 		argentina.agregarVehiculo(new Destructor(11, "A-10"));
 		argentina.agregarVehiculo(new HidroAvion(12, "Mitsubishi F1M"));
-		argentina.agregarVehiculo(new Anfibio(12, "LARC-5"));
+		// argentina.agregarVehiculo(new Anfibio(12, "LARC-5"));
 		
 		assertEquals((Integer)12, argentina.getCapacidadDeDefensa());
 	}

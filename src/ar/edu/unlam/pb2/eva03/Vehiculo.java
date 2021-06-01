@@ -30,4 +30,6 @@ public abstract class Vehiculo {
 		this.codigo = codigo;
 	}
 
+
+
 }
