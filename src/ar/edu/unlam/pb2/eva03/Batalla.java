@@ -55,8 +55,8 @@ public class Batalla {
 		return vehiculosEnLaBatalla;
 	}
 
-	public void setVehiculosEnLaBatalla(ArrayList<Vehiculo> vehiculosEnLaBatalla) {
-		this.vehiculosEnLaBatalla = vehiculosEnLaBatalla;
+	public void enviarVehiculoALaBatalla(Vehiculo vehiculosALaBatalla) {
+		this.vehiculosEnLaBatalla.add(vehiculosALaBatalla);
 	}
 	
 }

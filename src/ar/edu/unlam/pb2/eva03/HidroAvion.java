@@ -1,5 +1,7 @@
 package ar.edu.unlam.pb2.eva03;
 
+import ar.edu.unlam.pb2.eva03.enumeradores.TipoDeBatalla;
+
 public class HidroAvion extends Volador implements Iacuatica {
 
 	private Double profundidad = 0.0;
@@ -30,6 +32,11 @@ public class HidroAvion extends Volador implements Iacuatica {
 
 	public void setAltura(Double altura) {
 		this.altura = altura;
+	}
+
+	@Override
+	public Boolean estaAptoParaBatalla(TipoDeBatalla tipoVehiculo, TipoDeBatalla tipoBatalla) {
+		return tipoVehiculo.equals(tipoBatalla) || tipoBatalla.equals(TipoDeBatalla.NAVAL);
 	}
 
 }

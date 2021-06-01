@@ -17,11 +17,7 @@ public class FuerzaArmada {
 
 	public void agregarVehiculo(Vehiculo newVehiculo) {
 
-		
-				this.convoy.add(newVehiculo);
-
-			
-		
+		this.convoy.add(newVehiculo);
 
 	}
 
@@ -43,9 +39,31 @@ public class FuerzaArmada {
 	public void crearBatalla(String string, TipoDeBatalla terreno, Double latitud, Double longitud) {
 
 		Batalla batalla = new Batalla(string, terreno, latitud, longitud);
-		
+
 		this.batallas.add(batalla);
-		
+
+	}
+
+	public Boolean enviarALaBatalla(String nombreBatalla, Integer codigoVehiculo) {
+
+		Batalla batallaSolicitada = getBatalla(nombreBatalla);
+
+		for (Vehiculo vehiculo : this.convoy) {
+
+			if (vehiculo.getCodigo().equals(codigoVehiculo)) {
+
+				if (vehiculo.estaAptoParaBatalla(vehiculo.getTipoVehiculo(), batallaSolicitada.getTipo())) {
+
+					batallaSolicitada.enviarVehiculoALaBatalla(vehiculo);
+					return Boolean.TRUE;
+				}
+
+			}
+
+		}
+
+		return Boolean.FALSE;
+
 	}
 
 }

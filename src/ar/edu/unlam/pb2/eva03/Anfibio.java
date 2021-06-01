@@ -1,5 +1,7 @@
 package ar.edu.unlam.pb2.eva03;
 
+import ar.edu.unlam.pb2.eva03.enumeradores.TipoDeBatalla;
+
 public class Anfibio extends Terrestre implements Iacuatica {
 
 	Double velocidad = 0.0;
@@ -28,6 +30,11 @@ public class Anfibio extends Terrestre implements Iacuatica {
 
 	public void setVelocidad(Double velocidad) {
 		this.velocidad = velocidad;
+	}
+	
+	@Override
+	public Boolean estaAptoParaBatalla(TipoDeBatalla tipoVehiculo, TipoDeBatalla tipoBatalla) {
+		return tipoVehiculo.equals(tipoBatalla) || tipoBatalla.equals(TipoDeBatalla.NAVAL);
 	}
 
 }

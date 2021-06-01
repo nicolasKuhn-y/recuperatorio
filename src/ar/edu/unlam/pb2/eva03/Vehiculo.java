@@ -30,6 +30,8 @@ public abstract class Vehiculo {
 		this.codigo = codigo;
 	}
 
-
+	public Boolean estaAptoParaBatalla(TipoDeBatalla tipoVehiculo, TipoDeBatalla tipoBatalla) {
+		return tipoVehiculo.equals(tipoBatalla);
+	}
 
 }
