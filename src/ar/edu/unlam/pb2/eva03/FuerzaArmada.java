@@ -17,10 +17,8 @@ public class FuerzaArmada {
 
 	public void agregarVehiculo(Vehiculo newVehiculo) {
 
-		if (!existeRepetido(newVehiculo)) {
-			this.convoy.add(newVehiculo);
-		}
-
+		if (!existeRepetido(newVehiculo)) this.convoy.add(newVehiculo);
+		
 	}
 
 	public Boolean existeRepetido(Vehiculo newVehiculo) {
@@ -47,7 +45,6 @@ public class FuerzaArmada {
 			if (batalla.getNombre().equals(string)) {
 				return batalla;
 			}
-			;
 		}
 		return null;
 	}
