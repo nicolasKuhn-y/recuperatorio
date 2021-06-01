@@ -17,7 +17,23 @@ public class FuerzaArmada {
 
 	public void agregarVehiculo(Vehiculo newVehiculo) {
 
-		this.convoy.add(newVehiculo);
+		if (!existeRepetido(newVehiculo)) {
+			this.convoy.add(newVehiculo);
+		}
+
+	}
+
+	public Boolean existeRepetido(Vehiculo newVehiculo) {
+		Integer codigoVehiculoNuevo = newVehiculo.getCodigo();
+
+		for (Vehiculo vehiculo : this.convoy) {
+
+			if (vehiculo.getCodigo().equals(codigoVehiculoNuevo)) {
+				return Boolean.TRUE;
+			}
+
+		}
+		return Boolean.FALSE;
 
 	}
 
@@ -47,23 +63,20 @@ public class FuerzaArmada {
 	public Boolean enviarALaBatalla(String nombreBatalla, Integer codigoVehiculo) {
 
 		Batalla batallaSolicitada = getBatalla(nombreBatalla);
+		TipoDeBatalla tipoDeBatalla = batallaSolicitada.getTipo();
 
 		for (Vehiculo vehiculo : this.convoy) {
 
 			if (vehiculo.getCodigo().equals(codigoVehiculo)) {
 
-				if (vehiculo.estaAptoParaBatalla(vehiculo.getTipoVehiculo(), batallaSolicitada.getTipo())) {
+				if (vehiculo.estaAptoParaBatalla(vehiculo.getTipoVehiculo(), tipoDeBatalla)) {
 
 					batallaSolicitada.enviarVehiculoALaBatalla(vehiculo);
 					return Boolean.TRUE;
 				}
-
 			}
-
 		}
-
 		return Boolean.FALSE;
-
 	}
 
 }
